@@ -1,0 +1,18 @@
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: red;
+  padding: 20px;
+  transition: 0.6s;
+}
+
+.link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logo {
+  width: 50px;
+}
