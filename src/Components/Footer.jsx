@@ -3,9 +3,9 @@ import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
   return (
-    <footer>
-      <p>Powered by</p>
-      <img src="/DH.ico" alt="DH-logo" />
+    <footer className={styles.footer}>
+      <p className={styles.text}>Powered by</p>
+      <img src="/images/DH.png" alt="DH-logo" className={styles.img} />
     </footer>
   );
 };

@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 500px;
+  height: 100%;
+  margin: auto;
+}
+
+.label {
+  font-size: 20px;
+}
+
+.input {
+  width: 50%;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 17px;
+}
+
+.button {
+  padding: 13px 40px;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #23262c;
+  border: none;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+.message {
+  font-size: 20px;
+  text-align: center;
+  background-color: #e3e8e8;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.error {
+  color: #ff0000;
+}
