@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styles from "../styles/Form.module.css";
+import Swal from "sweetalert2";
 
 const Form = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState(false);
+
+  const emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/;
 
   const onChangeName = (e) => {
     setName(e.target.value);
@@ -19,14 +21,24 @@ const Form = () => {
     e.preventDefault();
 
     if (name.trim().length < 5 || name.trim() === "") {
-      setMessage("Por favor verifique su información nuevamente");
-      setError(true);
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: "Por favor verifique su información nuevamente",
+        timer: 2500,
+        showConfirmButton: false,
+      });
       return;
     }
 
     if (!emailRegex.test(email) || email.trim() === "") {
-      setMessage("Por favor verifique su información nuevamente");
-      setError(true);
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: "Por favor verifique su información nuevamente",
+        timer: 2500,
+        showConfirmButton: false,
+      });
       return;
     } else {
       let data = {
@@ -34,20 +46,21 @@ const Form = () => {
         email,
       };
       console.log(data);
-      setMessage(`Gracias ${name}, te contactaremos cuando antes vía mail`);
+      Swal.fire({
+        icon: "success",
+        title: "¡Gracias por contactarnos!",
+        text: `Gracias ${name}, te contactaremos cuando antes vía mail`,
+        timer: 2500,
+        showConfirmButton: false,
+      });
     }
   };
-
-  const emailRegex =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/;
-
-  const clases = `${styles.message} ${styles.error}`;
 
   return (
     <>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label htmlFor="name" className={styles.label}>
-          Nombre
+          Nombre Completo
         </label>
         <input
           type="text"
@@ -69,11 +82,6 @@ const Form = () => {
           onChange={onChangeEmail}
         />
         <button className={styles.button}>Enviar</button>
-        {error ? (
-          <p className={clases}>{message}</p>
-        ) : (
-          <p className={styles.message}>{message}</p>
-        )}
       </form>
     </>
   );

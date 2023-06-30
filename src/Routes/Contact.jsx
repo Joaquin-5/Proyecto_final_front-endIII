@@ -6,9 +6,10 @@ import styles from "../styles/Contact.module.css";
 
 const Contact = () => {
   return (
-    <div className={styles.container}>
+    <main className={styles.container}>
+      <h1>¡Contáctanos!</h1>
       <Form />
-    </div>
+    </main>
   );
 };
 

@@ -31,15 +31,3 @@
   font-size: 17px;
   border-radius: 10px;
 }
-
-.message {
-  font-size: 20px;
-  text-align: center;
-  background-color: #e3e8e8;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.error {
-  color: #ff0000;
-}
