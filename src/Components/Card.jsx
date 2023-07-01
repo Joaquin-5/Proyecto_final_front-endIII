@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/Card.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Card = (props) => {
   const navigate = useNavigate();
@@ -22,6 +22,7 @@ const Card = (props) => {
       <button onClick={addFav} className={styles.favButton}>
         Marcar como favorito
       </button>
+      
     </div>
   );
 };

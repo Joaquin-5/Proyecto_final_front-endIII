@@ -14,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   return (
     <main>
