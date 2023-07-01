@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Card from "../Components/Card";
 import styles from "../styles/Home.module.css";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Home = () => {
   const [dentists, setDentists] = useState([]);
 
@@ -16,7 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   return (
     <main>
@@ -26,7 +24,7 @@ const Home = () => {
           <Card
             name={dentist.name}
             username={dentist.username}
-            id={dentist.id}
+            key={dentist.id}
           />
         ))}
       </div>

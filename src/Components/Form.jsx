@@ -25,7 +25,7 @@ const Form = () => {
         icon: "error",
         title: "Error!",
         text: "Por favor verifique su información nuevamente",
-        timer: 2500,
+        timer: 3000,
         showConfirmButton: false,
       });
       return;
@@ -36,7 +36,7 @@ const Form = () => {
         icon: "error",
         title: "Error!",
         text: "Por favor verifique su información nuevamente",
-        timer: 2500,
+        timer: 3000,
         showConfirmButton: false,
       });
       return;
@@ -50,9 +50,11 @@ const Form = () => {
         icon: "success",
         title: "¡Gracias por contactarnos!",
         text: `Gracias ${name}, te contactaremos cuando antes vía mail`,
-        timer: 2500,
+        timer: 3000,
         showConfirmButton: false,
       });
+      setName("");
+      setEmail("");
     }
   };
 
@@ -65,7 +67,7 @@ const Form = () => {
         <input
           type="text"
           id="name"
-          placeholder="Nombre"
+          placeholder="Nombre Completo"
           className={styles.input}
           value={name}
           onChange={onChangeName}
@@ -81,7 +83,7 @@ const Form = () => {
           value={email}
           onChange={onChangeEmail}
         />
-        <button className={styles.button}>Enviar</button>
+        <button className={styles.submitButton}>Enviar</button>
       </form>
     </>
   );

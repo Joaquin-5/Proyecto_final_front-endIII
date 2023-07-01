@@ -2,22 +2,31 @@
   max-width: 100%;
   display: flex;
   justify-content: space-between;
+  background-color: #ffffff;
   align-items: center;
-  background-color: #23262c;
   padding: 20px 40px;
   transition: 0.6s;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.07);
+}
+
+:global(body.dark) .nav {
+  background-color: #23262c;
 }
 
 .links {
-  width: 30%;
+  width: 40%;
   display: flex;
   justify-content: space-between;
 }
 
 .link {
   text-decoration: none;
-  color: #ffffff;
   transition: 1s;
+  color: #000000;
+}
+
+:global(.dark) .link {
+  color: #ffffff;
 }
 
 .link:hover {
@@ -26,4 +35,8 @@
 
 .logo {
   width: 50px;
+}
+
+.changeThemeButton {
+  cursor: pointer;
 }

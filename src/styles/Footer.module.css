@@ -1,15 +1,43 @@
 .footer {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    background-color: #23262c;
-    padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 30px 40px;
+  box-shadow: 2px 0 0 4px rgba(0, 0, 0, 0.07);
 }
 
-.text {
-    color: #ffffff;
+:global(.light) .footer {
+  background-color: #ffffff;
 }
 
-.img {
-    width: 200px;
+:global(.dark) .footer {
+  background-color: #23262c;
+}
+
+.logoContainer {
+  width: 85%;
+  display: flex;
+  align-items: center;
+}
+
+.socialMediaContainer {
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+}
+
+:global(.light) .text {
+  color: #000000;
+}
+
+:global(.dark) .text {
+  color: #ffffff;
+}
+
+.imgLogo {
+  width: 200px;
+}
+
+.imgMedia {
+  width: 30px;
 }
