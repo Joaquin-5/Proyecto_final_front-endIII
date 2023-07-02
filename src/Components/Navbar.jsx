@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import { ContextGlobal } from "./utils/ThemeContext";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import styles from "../styles/Navbar.module.css";
 import { FormControlLabel, FormGroup, Switch, styled } from "@mui/material";
+import styles from "../styles/Navbar.module.css";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -24,12 +22,12 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       "& + .MuiSwitch-track": {
         opacity: 1,
-        backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+        backgroundColor: theme === "dark" ? "#8796A5" : "#aab4be",
       },
     },
   },
   "& .MuiSwitch-thumb": {
-    backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#001e3c",
+    backgroundColor: theme === "dark" ? "#003892" : "#001e3c",
     width: 32,
     height: 32,
     "&:before": {
@@ -48,7 +46,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   "& .MuiSwitch-track": {
     opacity: 1,
-    backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+    backgroundColor: theme === "dark" ? "#8796A5" : "#aab4be",
     borderRadius: 20 / 2,
   },
 }));
@@ -85,6 +83,7 @@ const Navbar = () => {
                   sx={{ m: 1 }}
                   defaultChecked
                   onClick={changeTheme}
+                  theme={theme.value}
                 />
               }
             />

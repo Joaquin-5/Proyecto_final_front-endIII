@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Components/Card";
 import styles from "../styles/Home.module.css";
+import { Main } from "../Components/Main";
+import { MainTitle } from "../Components/MainTitle";
 
 const Home = () => {
   const [dentists, setDentists] = useState([]);
@@ -17,8 +19,8 @@ const Home = () => {
   });
 
   return (
-    <main>
-      <h1 className={styles.mainTitle}>Menú Principal</h1>
+    <Main>
+      <MainTitle className={styles.mainTitle}>Menú Principal</MainTitle>
       <div className={styles.cardGrid}>
         {dentists.map((dentist) => (
           <Card
@@ -28,7 +30,7 @@ const Home = () => {
           />
         ))}
       </div>
-    </main>
+    </Main>
   );
 };
 
