@@ -18,7 +18,7 @@ const Card = (props) => {
   };
 
   const handleNavigation = () => {
-    navigate("/detail");
+    navigate(`/detail/${props.onClick}`);
   };
 
   return (
@@ -26,7 +26,7 @@ const Card = (props) => {
       <img src="/images/doctor.jpg" alt="image doctor" className={styles.img} />
       <h3 className="nombre">{props.name}</h3>
       <h4 className="apodo">{props.username}</h4>
-      <Tooltip title="Añadir a favoritos">
+      <Tooltip title={isSolid ? "Eliminar de favoritos" : "Añadir a favoritos"}>
         <FontAwesomeIcon
           icon={isSolid ? fasBookmark : farBookmark}
           className={styles.bootMarkIcon}

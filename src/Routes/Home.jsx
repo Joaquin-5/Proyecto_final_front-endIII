@@ -16,7 +16,11 @@ const Home = () => {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
+
+  const handleId = (id) => {
+    return id;
+  };
 
   return (
     <Main>
@@ -27,6 +31,7 @@ const Home = () => {
             name={dentist.name}
             username={dentist.username}
             key={dentist.id}
+            onClick={handleId(dentist.id)}
           />
         ))}
       </div>

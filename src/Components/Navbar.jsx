@@ -58,6 +58,8 @@ const Navbar = () => {
     theme.changeTheme();
   };
 
+  console.log(theme.value);
+
   return (
     <header>
       <nav className={styles.nav}>
