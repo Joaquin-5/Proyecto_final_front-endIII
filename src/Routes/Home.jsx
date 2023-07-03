@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Components/Card";
-import styles from "../styles/Home.module.css";
 import { Main } from "../Components/Main";
 import { MainTitle } from "../Components/MainTitle";
+import styles from "../styles/Home.module.css";
 
 const Home = () => {
   const [dentists, setDentists] = useState([]);
