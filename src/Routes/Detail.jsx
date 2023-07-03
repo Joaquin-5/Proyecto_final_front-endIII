@@ -91,7 +91,9 @@ const Detail = () => {
           </table>
         </div>
       ) : (
-        <h2>Cargando información...</h2>
+        <h2 className={styles.h2} id={styles.loadingMessage}>
+          Cargando información...
+        </h2>
       )}
     </Main>
   );
