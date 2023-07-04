@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 
-export const ContextGlobal = createContext();
+export const ThemeContext = createContext(null);
 
-export const ThemeContext = (props) => {
+export const ThemeContextProvider = (props) => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const toggleTheme = () => {
@@ -24,8 +24,8 @@ export const ThemeContext = (props) => {
   };
 
   return (
-    <ContextGlobal.Provider value={returnedValue}>
+    <ThemeContext.Provider value={returnedValue}>
       {props.children}
-    </ContextGlobal.Provider>
+    </ThemeContext.Provider>
   );
 };

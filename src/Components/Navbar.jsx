@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ContextGlobal } from "./utils/ThemeContext";
+import { ThemeContext } from "./utils/themeContext.jsx";
 import { Link } from "react-router-dom";
 import { FormControlLabel, FormGroup, Switch, styled } from "@mui/material";
 import styles from "../styles/Navbar.module.css";
@@ -52,7 +52,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const Navbar = () => {
-  const theme = useContext(ContextGlobal);
+  const theme = useContext(ThemeContext);
 
   const changeTheme = () => {
     theme.changeTheme();

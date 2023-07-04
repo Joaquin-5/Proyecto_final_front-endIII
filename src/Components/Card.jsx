@@ -13,7 +13,6 @@ const Card = (props) => {
   const addFav = (e) => {
     e.stopPropagation();
     setIsSolid(!isSolid);
-    console.log(props.key);
     console.log("Marcando como favorito...");
   };
 
