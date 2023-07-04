@@ -1,25 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 
 export const ThemeContext = createContext(null);
 
 export const ThemeProvider = (props) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const storedTheme = localStorage.getItem("theme");
+  const [theme, setTheme] = useState(storedTheme || "light");
+  const bodyRef = useRef(document.body);
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    bodyRef.current.className = theme;
+  }, [theme]);
 
   const toggleTheme = () => {
-    const body = document.body;
-    if (theme === "light") {
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-      body.classList.add("dark");
-    } else {
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-      body.classList.remove("dark");
-    }
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
   };
 
   const returnedValue = {
-    value: theme,
+    actualTheme: theme,
     changeTheme: toggleTheme,
   };
 

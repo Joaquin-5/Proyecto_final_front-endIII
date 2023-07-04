@@ -52,13 +52,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const Navbar = () => {
-  const theme = useContext(ThemeContext);
+  const {actualTheme, changeTheme} = useContext(ThemeContext);
 
-  const changeTheme = () => {
-    theme.changeTheme();
-  };
-
-  console.log(theme.value);
+  console.log(actualTheme);
 
   return (
     <header>
@@ -83,9 +79,9 @@ const Navbar = () => {
               control={
                 <MaterialUISwitch
                   sx={{ m: 1 }}
-                  defaultChecked
+                  checked={actualTheme === "dark" ? true : false}
                   onClick={changeTheme}
-                  theme={theme.value}
+                  theme={actualTheme}
                 />
               }
             />

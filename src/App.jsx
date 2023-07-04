@@ -7,7 +7,7 @@ import Contact from "./Routes/Contact.jsx";
 import "./App.css";
 
 function App() {
-  useEffect(() => {
+  /* useEffect(() => {
     const body = document.body;
     const theme = localStorage.getItem("theme");
 
@@ -18,7 +18,7 @@ function App() {
       localStorage.setItem("theme", "light");
       body.classList.remove("dark");
     }
-  }, []);
+  }, []); */
 
   return (
     <div className="app">
