@@ -1,19 +1,35 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faBookmark as fasBookmark } from "@fortawesome/free-solid-svg-icons";
 import { Tooltip } from "@mui/material";
+import { FavoritesContext } from "./utils/favoriteContext";
 import styles from "../styles/Card.module.css";
 
 const Card = (props) => {
-  const [isSolid, setIsSolid] = useState(false);
+  const [isSolid, setIsSolid] = useState(props.isFavorite);
+  const [dataDentist] = useState({
+    id: props.onClick,
+    name: props.name,
+    username: props.username,
+  });
+  const { addFavorite, removeFavorite } = useContext(FavoritesContext);
   const navigate = useNavigate();
 
-  const addFav = (e) => {
+  const handleAddFav = (e) => {
     e.stopPropagation();
     setIsSolid(!isSolid);
-    console.log("Marcando como favorito...");
+    addFavorite(dataDentist);
+    console.log(dataDentist);
+    console.log("Se ejecutó la función addFav");
+  };
+
+  const handleRemoveFav = (e) => {
+    e.stopPropagation();
+    setIsSolid(!isSolid);
+    removeFavorite(dataDentist);
+    console.log("Se ejecutó la función removeFav");
   };
 
   const handleNavigation = () => {
@@ -29,7 +45,7 @@ const Card = (props) => {
         <FontAwesomeIcon
           icon={isSolid ? fasBookmark : farBookmark}
           className={styles.bootMarkIcon}
-          onClick={addFav}
+          onClick={isSolid ? handleRemoveFav : handleAddFav}
         />
       </Tooltip>
     </div>

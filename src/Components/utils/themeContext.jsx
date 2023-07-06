@@ -17,13 +17,8 @@ export const ThemeProvider = (props) => {
     setTheme(newTheme);
   };
 
-  const returnedValue = {
-    actualTheme: theme,
-    changeTheme: toggleTheme,
-  };
-
   return (
-    <ThemeContext.Provider value={returnedValue}>
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
       {props.children}
     </ThemeContext.Provider>
   );

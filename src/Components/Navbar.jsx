@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./utils/themeContext.jsx";
+import { FavoritesContext } from "./utils/favoriteContext.jsx";
 import { Link } from "react-router-dom";
 import { FormControlLabel, FormGroup, Switch, styled } from "@mui/material";
 import styles from "../styles/Navbar.module.css";
@@ -52,9 +53,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const Navbar = () => {
-  const {actualTheme, changeTheme} = useContext(ThemeContext);
-
-  console.log(actualTheme);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { cantFavorites } = useContext(FavoritesContext);
 
   return (
     <header>
@@ -70,6 +70,9 @@ const Navbar = () => {
           </Link>
           <Link to="/favs" className={styles.link}>
             Favoritos
+            {cantFavorites > 0 && <div className={styles.cantFavorite}>
+              <span>{cantFavorites}</span>
+            </div>}
           </Link>
           <Link to="/contacto" className={styles.link}>
             Contacto
@@ -79,9 +82,9 @@ const Navbar = () => {
               control={
                 <MaterialUISwitch
                   sx={{ m: 1 }}
-                  checked={actualTheme === "dark" ? true : false}
-                  onClick={changeTheme}
-                  theme={actualTheme}
+                  checked={theme === "dark" ? true : false}
+                  onClick={toggleTheme}
+                  theme={theme}
                 />
               }
             />

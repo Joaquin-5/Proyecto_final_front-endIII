@@ -4,10 +4,8 @@
   width: 100%;
   padding: 30px 40px;
   box-shadow: 2px 0 0 4px rgba(0, 0, 0, 0.07);
-}
-
-:global(.light) .footer {
   background-color: #ffffff;
+  transition: background-color 0.6s;
 }
 
 :global(.dark) .footer {
@@ -26,8 +24,9 @@
   justify-content: space-around;
 }
 
-:global(.light) .text {
+.text {
   color: #000000;
+  transition: color 0.6s;
 }
 
 :global(.dark) .text {

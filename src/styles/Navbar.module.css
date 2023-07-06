@@ -21,6 +21,7 @@
 }
 
 .link {
+  position: relative;
   text-decoration: none;
   transition: 1s;
   color: #000000;
@@ -36,4 +37,20 @@
 
 .logo {
   width: 50px;
+}
+
+.cantFavorite {
+  width: 20px;
+  position: absolute;
+  top: -19px;
+  right: -15px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  text-align: center;
+  transition: 0.6s;
+}
+
+:global(.dark) .cantFavorite {
+  background-color: #f5f5f5;
+  color: #000000;
 }
