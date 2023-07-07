@@ -22,14 +22,12 @@ const Card = (props) => {
     setIsSolid(!isSolid);
     addFavorite(dataDentist);
     console.log(dataDentist);
-    console.log("Se ejecutó la función addFav");
   };
 
   const handleRemoveFav = (e) => {
     e.stopPropagation();
     setIsSolid(!isSolid);
     removeFavorite(dataDentist);
-    console.log("Se ejecutó la función removeFav");
   };
 
   const handleNavigation = () => {

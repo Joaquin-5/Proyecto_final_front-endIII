@@ -3,6 +3,7 @@ import Card from "../Components/Card";
 import { Main } from "../Components/Main";
 import { MainTitle } from "../Components/MainTitle";
 import { FavoritesContext } from "../Components/utils/favoriteContext";
+import styles from "../styles/Favs.module.css";
 
 const Favs = () => {
   const { favorites, cantFavorites } = useContext(FavoritesContext);
@@ -16,7 +17,7 @@ const Favs = () => {
   return (
     <Main>
       <MainTitle>Dentistas Favoritos</MainTitle>
-      <div className="card-grid">
+      <div className={styles.cardGrid}>
         {cantFavorites > 0 ? (
           favorites.map((favDentist) => (
             <Card
@@ -28,7 +29,7 @@ const Favs = () => {
             />
           ))
         ) : (
-          <h2>No tienes Dentistas favoritos</h2>
+          <h2 className={styles.h2}>No tienes Dentistas favoritos</h2>
         )}
       </div>
     </Main>

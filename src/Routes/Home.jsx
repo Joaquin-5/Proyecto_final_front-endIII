@@ -36,11 +36,7 @@ const Home = () => {
             key={dentist.id}
             onClick={handleId(dentist.id)}
             isFavorite={
-              cantFavorites > 0
-                ? favorites.map((favDentist) => {
-                  favDentist.id === dentist.id;
-                })
-                : false
+              cantFavorites > 0 ? favorites.some((favDentist) => favDentist.id === dentist.id) : false
             }
           />
         ))}

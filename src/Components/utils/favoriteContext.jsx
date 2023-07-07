@@ -16,6 +16,8 @@ export const FavoritesProvider = (props) => {
   useEffect(() => {
     if (cantFavorites > 0) {
       localStorage.setItem("favorites", JSON.stringify(favorites));
+    } else {
+      localStorage.removeItem("favorites");
     }
   }, [favorites]);
 
