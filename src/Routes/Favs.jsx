@@ -8,8 +8,6 @@ import styles from "../styles/Favs.module.css";
 const Favs = () => {
   const { favorites, cantFavorites } = useContext(FavoritesContext);
 
-  console.log(favorites);
-
   const handleId = (id) => {
     return id;
   };

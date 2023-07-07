@@ -8,7 +8,6 @@ import styles from "../styles/Home.module.css";
 const Home = () => {
   const [dentists, setDentists] = useState([]);
   const { favorites, cantFavorites } = useContext(FavoritesContext);
-  console.log(favorites);
 
   const getData = async () => {
     const data = await fetch("https://jsonplaceholder.typicode.com/users");

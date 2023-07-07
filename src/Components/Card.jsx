@@ -21,7 +21,6 @@ const Card = (props) => {
     e.stopPropagation();
     setIsSolid(!isSolid);
     addFavorite(dataDentist);
-    console.log(dataDentist);
   };
 
   const handleRemoveFav = (e) => {
