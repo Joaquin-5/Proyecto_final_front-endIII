@@ -27,7 +27,7 @@ const Detail = () => {
 
   return (
     <Main>
-      <MainTitle>Detalle dentista</MainTitle>
+      {data && <MainTitle>Detalle dentista</MainTitle>}
       {data ? (
         <div className={styles.dentistContainer}>
           <h2 className={styles.h2}>Datos Personales</h2>
@@ -91,9 +91,9 @@ const Detail = () => {
           </table>
         </div>
       ) : (
-        <h2 className={styles.h2} id={styles.loadingMessage}>
+        <MainTitle class={styles.loadingMessage}>
           Cargando información...
-        </h2>
+        </MainTitle>
       )}
     </Main>
   );

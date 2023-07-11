@@ -2,6 +2,7 @@
   width: 100%;
   text-align: center;
   transition: color 0.6s;
+  margin-bottom: 100px;
 }
 
 :global(.dark) .dentistContainer {
@@ -9,8 +10,7 @@
 }
 
 .h2 {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin: 40px;
 }
 
 .table {
@@ -29,11 +29,14 @@
   background-color: #dddddd;
 }
 
-#loadingMessage {
-  text-align: center;
+.loadingMessage {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
   transition: color 0.6s;
 }
 
-:global(.dark) #loadingMessage {
+:global(.dark) .loadingMessage {
   color: #ffffff;
 }

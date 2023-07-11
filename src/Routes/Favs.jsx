@@ -14,7 +14,7 @@ const Favs = () => {
 
   return (
     <Main>
-      <MainTitle>Dentistas Favoritos</MainTitle>
+      {cantFavorites > 0 && <MainTitle>Dentistas Favoritos</MainTitle>}
       <div className={styles.cardGrid}>
         {cantFavorites > 0 ? (
           favorites.map((favDentist) => (
@@ -27,7 +27,9 @@ const Favs = () => {
             />
           ))
         ) : (
-          <h2 className={styles.h2}>No tienes Dentistas favoritos</h2>
+          <MainTitle class={styles.noFavoritesMessage}>
+            No tienes Dentistas Favoritos
+          </MainTitle>
         )}
       </div>
     </Main>
