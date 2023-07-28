@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "./utils/themeContext.jsx";
 import { FavoritesContext } from "./utils/favoriteContext.jsx";
 import { Link } from "react-router-dom";
 import { FormControlLabel, FormGroup, Switch, styled } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/Navbar.module.css";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -56,6 +58,25 @@ const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { cantFavorites } = useContext(FavoritesContext);
 
+  const [isVisible, setIsVisible] = useState(window.innerWidth < 768);
+  const [displayStyle, setDisplayStyle] = useState(isVisible ? "none" : "flex");
+
+  const handleButtonShow = () => {
+    setIsVisible(window.innerWidth < 768);
+  };
+
+  const toggleNavBarMobile = () => {
+    console.log("Se hizo click");
+    if (isVisible) {
+      setDisplayStyle(displayStyle === "none" ? "flex" : "none");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleButtonShow);
+    return () => window.removeEventListener("resize", handleButtonShow);
+  }, []);
+
   return (
     <header>
       <nav className={styles.nav}>
@@ -64,15 +85,17 @@ const Navbar = () => {
             <img src="/DH.ico" alt="logo app" className={styles.logo} />
           </Link>
         </div>
-        <div className={styles.links}>
+        <div className={styles.links} style={{ display: displayStyle }}>
           <Link to="/" className={styles.link}>
             Menú principal
           </Link>
           <Link to="/favs" className={styles.link}>
             Favoritos
-            {cantFavorites > 0 && <div className={styles.cantFavorite}>
-              <span>{cantFavorites}</span>
-            </div>}
+            {cantFavorites > 0 && (
+              <div className={styles.cantFavorite}>
+                <span>{cantFavorites}</span>
+              </div>
+            )}
           </Link>
           <Link to="/contacto" className={styles.link}>
             Contacto
@@ -90,6 +113,13 @@ const Navbar = () => {
             />
           </FormGroup>
         </div>
+        {isVisible && (
+          <div className={styles.navToggle}>
+            <button className={styles.barsButton} onClick={toggleNavBarMobile}>
+              <FontAwesomeIcon icon={faBars} className={styles.barsIcon} />
+            </button>
+          </div>
+        )}
       </nav>
     </header>
   );

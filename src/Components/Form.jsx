@@ -17,28 +17,29 @@ const Form = () => {
     setEmail(e.target.value);
   };
 
+  const swalAlert = (icon, name = "") => {
+    Swal.fire({
+      icon: icon === "error" ? "error" : "success",
+      title: icon === "error" ? "Error!" : "¡Gracias por contactarnos!",
+      text:
+        icon === "error"
+          ? "Por favor verifique su información nuevamente"
+          : `Gracias ${name}, te contactaremos cuando antes vía mail`,
+      timer: 3000,
+      showConfirmButton: false,
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (name.trim().length < 5 || name.trim() === "") {
-      Swal.fire({
-        icon: "error",
-        title: "Error!",
-        text: "Por favor verifique su información nuevamente",
-        timer: 3000,
-        showConfirmButton: false,
-      });
+      swalAlert("error");
       return;
     }
 
     if (!emailRegex.test(email) || email.trim() === "") {
-      Swal.fire({
-        icon: "error",
-        title: "Error!",
-        text: "Por favor verifique su información nuevamente",
-        timer: 3000,
-        showConfirmButton: false,
-      });
+      swalAlert("error");
       return;
     } else {
       let data = {
@@ -46,13 +47,7 @@ const Form = () => {
         email,
       };
       console.log(data);
-      Swal.fire({
-        icon: "success",
-        title: "¡Gracias por contactarnos!",
-        text: `Gracias ${name}, te contactaremos cuando antes vía mail`,
-        timer: 3000,
-        showConfirmButton: false,
-      });
+      swalAlert("success", name);
       setName("");
       setEmail("");
     }

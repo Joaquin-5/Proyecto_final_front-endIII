@@ -2,7 +2,24 @@
   width: 100%;
   display: grid;
   justify-content: space-around;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: auto auto auto auto;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
   grid-row-gap: 50px;
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .cardGrid {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cardGrid {
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    margin: 0;
+  }
 }

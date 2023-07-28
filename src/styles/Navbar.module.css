@@ -2,8 +2,8 @@
   max-width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #ffffff;
   align-items: center;
+  background-color: #ffffff;
   padding: 20px 40px;
   transition: 0.6s;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
@@ -14,17 +14,31 @@
 }
 
 .links {
-  width: 40%;
-  display: flex;
-  justify-content: space-between;
+  transition: 0.6s;
+  padding: 50px 0;
+  display: none;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: absolute;
+  gap: 30px;
+  top: 95px;
+  left: 0;
+  z-index: 1;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+:global(body.dark) .links {
+  background-color: #1d1a1a;
 }
 
 .link {
   position: relative;
   text-decoration: none;
-  transition: 1s;
+  transition: 0.6s all;
   color: #000000;
+  font-size: 20px;
 }
 
 :global(.dark) .link {
@@ -53,4 +67,70 @@
 :global(.dark) .cantFavorite {
   background-color: #f5f5f5;
   color: #000000;
+}
+
+.barsButton {
+  padding: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.barsIcon {
+  font-size: 30px;
+  transition: color 0.6s;
+}
+
+:global(.dark) .barsIcon {
+  color: #ffffff;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .links {
+    padding: 0;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    top: auto;
+    left: auto;
+    background-color: transparent;
+  }
+
+  :global(body.dark) .links {
+    background-color: transparent;
+  }
+
+  .link {
+    display: inline;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .links {
+    padding: 0;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    top: auto;
+    left: auto;
+    background-color: transparent;
+  }
+
+  :global(body.dark) .links {
+    background-color: transparent;
+  }
+
+  .link {
+    display: inline;
+    font-size: 16px;
+  }
 }

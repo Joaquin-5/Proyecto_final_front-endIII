@@ -82,7 +82,7 @@ const Detail = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr className={styles.tr}>
                 <td className={styles.td}>{data.company.name}</td>
                 <td className={styles.td}>{data.company.catchPhrase}</td>
                 <td className={styles.td}>{data.company.bs}</td>

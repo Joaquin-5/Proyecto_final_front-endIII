@@ -8,7 +8,9 @@ const Contact = () => {
   return (
     <Main className={styles.container}>
       <MainTitle>¡Contáctanos!</MainTitle>
-      <Form />
+      <div className={styles.formContainer}>
+        <Form />
+      </div>
     </Main>
   );
 };
