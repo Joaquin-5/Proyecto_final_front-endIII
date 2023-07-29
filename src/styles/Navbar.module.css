@@ -14,9 +14,10 @@
 }
 
 .links {
-  transition: 0.6s;
+  opacity: 0;
+  height: 0;
   padding: 50px 0;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -27,10 +28,16 @@
   z-index: 1;
   background-color: #f5f5f5;
   width: 100%;
+  transition: opacity 0.6s, height 0.6s, background-color 0.6s;
 }
 
 :global(body.dark) .links {
   background-color: #1d1a1a;
+}
+
+.visible {
+  height: auto;
+  opacity: 1;
 }
 
 .link {
@@ -87,6 +94,8 @@
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
   .links {
+    opacity: 1;
+    max-height: auto;
     padding: 0;
     width: 60%;
     display: flex;
@@ -112,6 +121,8 @@
 
 @media screen and (min-width: 1024px) {
   .links {
+    opacity: 1;
+    max-height: auto;
     padding: 0;
     width: 40%;
     display: flex;

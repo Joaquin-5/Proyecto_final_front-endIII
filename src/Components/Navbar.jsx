@@ -60,15 +60,16 @@ const Navbar = () => {
 
   const [isVisible, setIsVisible] = useState(window.innerWidth < 768);
   const [displayStyle, setDisplayStyle] = useState(isVisible ? "none" : "flex");
+  const [linksAnimation, setLinksAnimation] = useState(false);
 
   const handleButtonShow = () => {
     setIsVisible(window.innerWidth < 768);
   };
 
   const toggleNavBarMobile = () => {
-    console.log("Se hizo click");
     if (isVisible) {
       setDisplayStyle(displayStyle === "none" ? "flex" : "none");
+      setLinksAnimation(true);
     }
   };
 
@@ -85,7 +86,12 @@ const Navbar = () => {
             <img src="/DH.ico" alt="logo app" className={styles.logo} />
           </Link>
         </div>
-        <div className={styles.links} style={{ display: displayStyle }}>
+        <div
+          className={
+            linksAnimation ? `${styles.links} ${styles.visible}` : styles.links
+          }
+          style={{ display: displayStyle }}
+        >
           <Link to="/" className={styles.link}>
             Menú principal
           </Link>
@@ -102,6 +108,7 @@ const Navbar = () => {
           </Link>
           <FormGroup>
             <FormControlLabel
+              style={isVisible ? { margin: 0 } : null}
               control={
                 <MaterialUISwitch
                   sx={{ m: 1 }}
