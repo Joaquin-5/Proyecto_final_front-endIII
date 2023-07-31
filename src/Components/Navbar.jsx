@@ -60,7 +60,7 @@ const Navbar = () => {
 
   const [isVisible, setIsVisible] = useState(window.innerWidth < 768);
   const [displayStyle, setDisplayStyle] = useState(isVisible ? "none" : "flex");
-  const [linksAnimation, setLinksAnimation] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleButtonShow = () => {
     setIsVisible(window.innerWidth < 768);
@@ -69,8 +69,12 @@ const Navbar = () => {
   const toggleNavBarMobile = () => {
     if (isVisible) {
       setDisplayStyle(displayStyle === "none" ? "flex" : "none");
-      setLinksAnimation(true);
     }
+  };
+
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+    setDisplayStyle("none");
   };
 
   useEffect(() => {
@@ -82,20 +86,15 @@ const Navbar = () => {
     <header>
       <nav className={styles.nav}>
         <div className="logo">
-          <Link to="/">
+          <Link to="/" onClick={handleLinkClick}>
             <img src="/DH.ico" alt="logo app" className={styles.logo} />
           </Link>
         </div>
-        <div
-          className={
-            linksAnimation ? `${styles.links} ${styles.visible}` : styles.links
-          }
-          style={{ display: displayStyle }}
-        >
-          <Link to="/" className={styles.link}>
+        <div className={styles.links} style={{ display: displayStyle }}>
+          <Link to="/" className={styles.link} onClick={handleLinkClick}>
             Menú principal
           </Link>
-          <Link to="/favs" className={styles.link}>
+          <Link to="/favs" className={styles.link} onClick={handleLinkClick}>
             Favoritos
             {cantFavorites > 0 && (
               <div className={styles.cantFavorite}>
@@ -103,7 +102,7 @@ const Navbar = () => {
               </div>
             )}
           </Link>
-          <Link to="/contacto" className={styles.link}>
+          <Link to="/contacto" className={styles.link} onClick={handleLinkClick}>
             Contacto
           </Link>
           <FormGroup>
