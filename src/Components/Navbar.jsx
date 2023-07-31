@@ -60,7 +60,6 @@ const Navbar = () => {
 
   const [isVisible, setIsVisible] = useState(window.innerWidth < 768);
   const [displayStyle, setDisplayStyle] = useState(isVisible ? "none" : "flex");
-  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleButtonShow = () => {
     setIsVisible(window.innerWidth < 768);
@@ -73,7 +72,6 @@ const Navbar = () => {
   };
 
   const handleLinkClick = () => {
-    setMenuOpen(false);
     setDisplayStyle("none");
   };
 
