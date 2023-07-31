@@ -100,7 +100,11 @@ const Navbar = () => {
               </div>
             )}
           </Link>
-          <Link to="/contacto" className={styles.link} onClick={handleLinkClick}>
+          <Link
+            to="/contacto"
+            className={styles.link}
+            onClick={handleLinkClick}
+          >
             Contacto
           </Link>
           <FormGroup>
