@@ -72,7 +72,9 @@ const Navbar = () => {
   };
 
   const handleLinkClick = () => {
-    setDisplayStyle("none");
+    if (isVisible) {
+      setDisplayStyle("none");
+    }
   };
 
   useEffect(() => {
