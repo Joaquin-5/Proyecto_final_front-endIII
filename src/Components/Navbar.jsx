@@ -98,7 +98,7 @@ const Navbar = () => {
             Favoritos
             {cantFavorites > 0 && (
               <div className={styles.cantFavorite}>
-                <span>{cantFavorites}</span>
+                <span className={styles.number}>{cantFavorites}</span>
               </div>
             )}
           </Link>
