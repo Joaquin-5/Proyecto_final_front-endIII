@@ -30,66 +30,42 @@ const Detail = () => {
       {data && <MainTitle>Detalle dentista</MainTitle>}
       {data ? (
         <div className={styles.dentistContainer}>
-          <h2 className={styles.h2}>Datos Personales</h2>
-          <table className={styles.table}>
-            <thead>
-              <tr className={styles.tr}>
-                <th className={styles.th}>Id</th>
-                <th className={styles.th}>Nombre Completo</th>
-                <th className={styles.th}>Nombre de Usuario</th>
-                <th className={styles.th}>Email</th>
-                <th className={styles.th}>Número de Teléfono</th>
-                <th className={styles.th}>Página Web</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className={styles.tr}>
-                <td className={styles.td}>{data.id}</td>
-                <td className={styles.td}>{data.name}</td>
-                <td className={styles.td}>{data.username}</td>
-                <td className={styles.td}>{data.email}</td>
-                <td className={styles.td}>{data.phone}</td>
-                <td className={styles.td}>{data.website}</td>
-              </tr>
-            </tbody>
-          </table>
-          <h2 className={styles.h2}>Datos de Dirección</h2>
-          <table className={styles.table}>
-            <thead>
-              <tr className={styles.tr}>
-                <th className={styles.th}>Calle</th>
-                <th className={styles.th}>Suite</th>
-                <th className={styles.th}>Ciudad</th>
-                <th className={styles.th}>Código Postal</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className={styles.tr}>
-                <td className={styles.td}>{data.address.street}</td>
-                <td className={styles.td}>{data.address.suite}</td>
-                <td className={styles.td}>{data.address.city}</td>
-                <td className={styles.td}>{data.address.zipcode}</td>
-              </tr>
-            </tbody>
-          </table>
-          <h2 className={styles.h2}>Datos de la Compañía</h2>
-          <table className={styles.table}>
-            <thead>
-              <tr className={styles.tr}>
-                <th className={styles.th}>Nombre</th>
-                <th className={styles.th}>Eslogan</th>
-                <th className={styles.th}>Bs</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className={styles.tr}>
-                <td className={styles.td}>{data.company.name}</td>
-                <td className={styles.td}>{data.company.catchPhrase}</td>
-                <td className={styles.td}>{data.company.bs}</td>
-              </tr>
-            </tbody>
-          </table>
+        <h2 className={styles.h2}>Datos Personales</h2>
+        <div className={styles.gridContainer}>
+          <div className={styles.label}>Id:</div>
+          <div className={styles.value}>{data.id}</div>
+          <div className={styles.label}>Nombre Completo:</div>
+          <div className={styles.value}>{data.name}</div>
+          <div className={styles.label}>Nombre de Usuario:</div>
+          <div className={styles.value}>{data.username}</div>
+          <div className={styles.label}>Email:</div>
+          <div className={styles.value}>{data.email}</div>
+          <div className={styles.label}>Número de Teléfono:</div>
+          <div className={styles.value}>{data.phone}</div>
+          <div className={styles.label}>Página Web:</div>
+          <div className={styles.value}>{data.website}</div>
         </div>
+        <h2 className={styles.h2}>Datos de Dirección</h2>
+        <div className={styles.gridContainer}>
+          <div className={styles.label}>Calle:</div>
+          <div className={styles.value}>{data.address.street}</div>
+          <div className={styles.label}>Suite:</div>
+          <div className={styles.value}>{data.address.suite}</div>
+          <div className={styles.label}>Ciudad:</div>
+          <div className={styles.value}>{data.address.city}</div>
+          <div className={styles.label}>Código Postal:</div>
+          <div className={styles.value}>{data.address.zipcode}</div>
+        </div>
+        <h2 className={styles.h2}>Datos de la Compañía</h2>
+        <div className={styles.gridContainer}>
+          <div className={styles.label}>Nombre:</div>
+          <div className={styles.value}>{data.company.name}</div>
+          <div className={styles.label}>Eslogan:</div>
+          <div className={styles.value}>{data.company.catchPhrase}</div>
+          <div className={styles.label}>Bs:</div>
+          <div className={styles.value}>{data.company.bs}</div>
+        </div>
+      </div>
       ) : (
         <MainTitle class={styles.loadingMessage}>
           Cargando información...

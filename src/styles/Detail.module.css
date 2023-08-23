@@ -42,6 +42,23 @@
   color: #ffffff;
 }
 
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.label {
+  font-weight: bold;
+  border: 1px solid #ccc; 
+  padding: 0.5rem; 
+}
+
+.value {
+  text-align: center;
+  border: 1px solid #ccc; 
+  padding: 0.5rem; 
+}
+
 @media screen and (max-width: 767px) {
   .table {
     display: flex;

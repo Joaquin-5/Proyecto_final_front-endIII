@@ -71,7 +71,7 @@ const Form = () => {
           Email
         </label>
         <input
-          type="text"
+          type="email"
           id="email"
           placeholder="Email"
           className={styles.input}
